@@ -99,12 +99,13 @@ function maxOfTwoNumbers (a,b) {
   }
   */
   function uniquifyArray (arr) {
-    uniqueArray = []
+  if (arr.length === 0) {return} else {
+     uniqueArray = []
     for (i = 0; i < arr.length; i++) {
       if (uniqueArray.indexOf(arr[i]) == -1) {
         uniqueArray.push(arr[i])
       }
-    }
+    }}
     return uniqueArray
   }
   
@@ -139,6 +140,21 @@ function maxOfTwoNumbers (a,b) {
     'disobedience',
     'matter'
   ];
+
+  function howManyTimes(list,word){
+    var numRep = 0
+    if (list.length === 0){
+      return false
+    } else {
+      for (var i=0; i<list.length; i++){
+        if (word === list[i]){
+          numRep++
+        }
+      }
+      return numRep
+    }
+  }
+  
   // Bonus Quest
   
   var matrix = [
@@ -164,3 +180,24 @@ function maxOfTwoNumbers (a,b) {
     [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
   ];
   
+  function greatestProduct (matrix){
+    var max = 0
+  
+  
+     for (var i=0; i<matrix.length; i++){
+      for (var j=0; j<matrix[i].length-3; j++){
+        if((matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3])>max){
+          max=(matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3])
+        }
+      }
+    }
+  
+     for (var i=0; i<matrix.length-3; i++){
+      for (var j=0; j<matrix[i].length; j++){
+        if((matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j])>max){
+          max=(matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j])
+        }
+      }
+    }
+    return max
+  }  
